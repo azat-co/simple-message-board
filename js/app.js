@@ -1,5 +1,5 @@
-var sendURL="";
-var sendURL="";
+var sendURL="http://localhost:5000/messages/create.json";
+var getURL="http://localhost:5000/messages/list.json";
 
 $(document).ready(function(){
 	getMessages();
@@ -13,7 +13,7 @@ $(document).ready(function(){
 			headers: {
 			},
 			contentType: "application/json",
-			dataType: "json",
+			dataType: "jsonp",
 			processData: false,
 			data: JSON.stringify({
 				"username": username,
@@ -34,11 +34,11 @@ $(document).ready(function(){
 function getMessages() {
 	$.ajax({
 		url: getURL,
-		headers: {
-
-		},
+		// headers: {
+		// 
+		// },
 		contentType: "application/json",
-		dataType: "json",
+		dataType: "jsonp",
 		type: 'GET',
 		success: function(data) {
 			console.log("get");
